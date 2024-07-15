@@ -1,21 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import SignIn from '@views/signIn';
-
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Navigator from 'src/navigator';
+import FlashMessage from 'react-native-flash-message';
+import { Provider } from 'react-redux';
+import store from 'src/store';
 
 export default function App() {
+
+
   return (
-    <View style={styles.container}>
-      <SignIn />
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <SafeAreaView style={styles.container}>
+        <Navigator/>
+        <FlashMessage position='bottom'  />
+      </SafeAreaView>
+    </Provider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor : '#fff'
+    backgroundColor : '#fff',
+    padding : 15,
   },
 });
 

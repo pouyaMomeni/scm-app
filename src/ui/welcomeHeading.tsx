@@ -1,14 +1,17 @@
 import color from "@utils/colors";
+import { images } from "@utils/images";
 import { FC } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 
-interface Props {};
+interface Props {
+    imageName : string;
+};
 const Heading = "Online Marketplace for Used Goods";
 const SubHeading = "Buy or sell Goods by trust. Chat directly by seller, insuring a seamless, authentic exprience";
-const WelcomeHeading : FC<Props> = () => {
+const WelcomeHeading : FC<Props> = ({imageName}) => {
     return (
         <View style={styles.container}>
-            <Image source={require("assets/img/signUpImage2.png")}
+            <Image source={images[imageName]}
             style={styles.image}
             resizeMode="contain"
             resizeMethod="resize"
